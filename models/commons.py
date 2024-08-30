@@ -3,7 +3,7 @@ import time, logging, string, random, os
 logging.basicConfig(level=logging.INFO)
 LOGGER = logging.getLogger("    ")
 
-MONGOBD = os.getenv('MONGODB')
+MONGOBD = os.getenv('MONGODB_URL')
 
 def get_timestamp():
     return int(time.time())
