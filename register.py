@@ -6,6 +6,7 @@ def create_account():
     st.subheader("Create New Account")
 
     firstname = st.text_input(
+        "First name",
     )
     lastname = st.text_input(
         "Last name",
