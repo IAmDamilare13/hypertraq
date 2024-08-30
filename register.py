@@ -19,7 +19,7 @@ def create_account():
         type="password",
     )
     phone_number = st.text_input(
-        "Phone number (with country code,)",
+        "Phone number",
     )
     role = st.selectbox(
         "User as",
