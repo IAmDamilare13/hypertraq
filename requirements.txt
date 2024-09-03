@@ -27,6 +27,7 @@ smmap==5.0.1
 st-annotated-text==4.0.1
 st-theme==1.2.3
 streamlit==1.37.1
+streamlit-cookies==0.0.1
 streamlit-cookies-manager==0.2.0
 streamlit-authenticator==0.3.3
 streamlit-card==1.0.2
