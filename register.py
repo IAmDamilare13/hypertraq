@@ -29,7 +29,7 @@ def create_account():
 
     professional_id = ""
     if role == "Patient":
-        professional_id = st.text_input("Enter Professional ID (optional)")
+        professional_id = st.text_input("Enter Professional ID (optional)").upper()
 
     # Display additional fields if the user is a Professional
     org_name = ""
