@@ -1,13 +1,14 @@
 import datetime
-from streamlit import session_state
+from streamlit_cookies import CookieManager
 from models import *
 
 
 class Us:
     user: User = None
 
+cm = CookieManager()
 
-user_id = session_state.get("user_id")
+user_id = cm.get("user_id")
 Us.user = Users.get_child(user_id) if user_id else None
 
 print(f"{user_id=}")

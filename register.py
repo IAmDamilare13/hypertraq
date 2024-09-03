@@ -77,7 +77,7 @@ def create_account():
             )
 
             # saves the user_id to session state
-            session_state.user_id = user.id
+            cm.set("user_id", user.id)
 
             # user.update(lastname='Miracle')
             # user.delete()

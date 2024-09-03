@@ -13,13 +13,8 @@ def login_page():
         return user_dashboard()
 
     st.subheader("Login")
-    email = st.text_input(
-        "Email address"
-    )
-    password = st.text_input(
-        "Password",
-        type="password"
-    )
+    email = st.text_input("Email address")
+    password = st.text_input("Password", type="password")
     login_button = st.button("Login")
 
     if login_button:
@@ -34,7 +29,7 @@ def login_page():
                 return st.error("Invalid password")
 
             # saves the user_id to session state
-            session_state.user_id = Us.user.id
+            cm.set("user_id", Us.user.id)
             st.rerun()
 
         except Exception as e:

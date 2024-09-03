@@ -6,8 +6,7 @@ from commons import *
 
 
 def logout():
-    # set the session_state user_id to None
-    session_state.user_id = None
+    cm.delete("user_id")
     Us.user = None
     st.rerun()
 
