@@ -7,7 +7,7 @@ from PIL import Image
 def home_page():
     # st.title("Welcome to HyperTraQ")
     st.write(
-        "This platform helps patients and professionals manage and monitor hypertension risk."
+        "This platform helps patients and healthcare professionals to manage and monitor hypertension risk."
     )
 
     image = Image.open("images/chart.png")
