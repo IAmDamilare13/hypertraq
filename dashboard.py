@@ -89,12 +89,12 @@ def user_dashboard():
 
                     if medical_datas:
                         record = medical_datas[0]
-                        st.write(f" - Date: {record.timestamp}")
-                        st.write(f"   - Gender: {record.gender}")
-                        st.write(f"   - Age: {record.age}")
-                        st.write(f"   - Systolic BP: {record.systolic_bp}")
-                        st.write(f"   - Diastolic BP: {record.diastolic_bp}")
-                        st.write(f"   - BMI: {record.bmi}")
+                        # st.write(f" - Date: {record.timestamp}")
+                        # st.write(f"   - Gender: {record.gender}")
+                        # st.write(f"   - Age: {record.age}")
+                        # st.write(f"   - Systolic BP: {record.systolic_bp}")
+                        # st.write(f"   - Diastolic BP: {record.diastolic_bp}")
+                        # st.write(f"   - BMI: {record.bmi}")
                         st.write(f"   - Predicted Risk: {record.diagnosis}")
 
             if nav_bar3 == "Check Health Status":

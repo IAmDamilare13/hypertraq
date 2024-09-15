@@ -31,25 +31,64 @@ def patient_profile():
     # st.success(f"Signed in as {user.firstname} {user.lastname}") # ATTENTION: To Show Patient Name
 
     st.metric(label="Patient ID", value=Us.user.id)  # Display Patient ID
-
-    medical_datas = MedicalDatas.find(
-        dict(uid=Us.user.id),
-        limit=1,
-        descending=True,
-    )
-    medical_data: MedicalData = medical_datas[0] if medical_datas else None
+    st.metric(label="Name", value=f"{Us.user.firstname} {Us.user.lastname}")
+    st.metric(label="Contact", value=Us.user.phone_number)
 
     st.subheader("Health History", anchor="center")
 
-    if medical_data:
-        st.info(f"Last Checked: {format_datetime(medical_data.created_timestamp)}")  #
+    medical_datas = MedicalDatas.find(
+        dict(uid=Us.user.id),
+        limit=2,
+        descending=True,
+    )
+
+    if medical_datas:
+        last_medical_data = medical_datas[0]
+
+        st.info(
+            f"Last Checked: {format_datetime(last_medical_data.created_timestamp)}"
+        )  #
+
+        weight_delta = 0
+        height_delta = 0
+        bmi_delta = 0
+        sbp_delta = 0
+        dbp_delta = 0
+
+        if len(medical_datas) > 1:
+            s = medical_datas[1]
+            weight_delta = s.weight - last_medical_data.weight
+            height_delta = s.height - last_medical_data.height
+            bmi_delta = s.bmi - last_medical_data.bmi
+            sbp_delta = s.systolic_bp - last_medical_data.systolic_bp
+            dbp_delta = s.systolic_bp - last_medical_data.systolic_bp
 
         col1, col2, col3, col4, col5 = st.columns(5)
-        col1.metric("Weight (kg)", "70", "1.25")
-        col2.metric("Height (cm)", "155", "-3.5")
-        col3.metric("BMI (kg/m2)", "19.55", "0.43")
-        col4.metric("Systolic BP (mmHg)", "189", "-2")
-        col5.metric("Diastolic BP (mmHg)", "74", "4")
+        col1.metric(
+            "Weight (kg)",
+            "70",
+            f"{weight_delta:.2f}",
+        )
+        col2.metric(
+            "Height (cm)",
+            "155",
+            f"{height_delta:.2f}",
+        )
+        col3.metric(
+            "BMI (kg/m2)",
+            "19.55",
+            f"{bmi_delta:.2f}",
+        )
+        col4.metric(
+            "Systolic BP (mmHg)",
+            "189",
+            f"{sbp_delta:.2f}",
+        )
+        col5.metric(
+            "Diastolic BP (mmHg)",
+            "74",
+            f"{dbp_delta:.2f}",
+        )
 
     if Us.user.professional_id:
         prof: User = Users.get_child(Us.user.professional_id)
@@ -59,7 +98,7 @@ def patient_profile():
             border=True,
         )
         container.header("Professional Info:")
-        container.write(f"Name: {prof.firstname}")
+        container.write(f"Name: {prof.firstname} {prof.lastname}")
         container.write(f"Contact: {prof.org_phone_number}")
         container.write(f"Organisation: {prof.org_name}")
 
@@ -145,6 +184,7 @@ def patient_history(patients):
     )
 
     if (not option) or option == "Select":
+        print(99)
         return
 
     id = option.split(" | ")[0]
@@ -191,27 +231,27 @@ def patient_history(patients):
         col1.metric(
             "Weight (kg)",
             "70",
-            weight_delta,
+            f"{weight_delta:.2f}",
         )
         col2.metric(
             "Height (cm)",
             "155",
-            height_delta,
+            f"{height_delta:.2f}",
         )
         col3.metric(
             "BMI (kg/m2)",
             "19.55",
-            bmi_delta,
+            f"{bmi_delta:.2f}",
         )
         col4.metric(
             "Systolic BP (mmHg)",
             "189",
-            sbp_delta,
+            f"{sbp_delta:.2f}",
         )
         col5.metric(
             "Diastolic BP (mmHg)",
             "74",
-            dbp_delta,
+            f"{dbp_delta:.2f}",
         )
 
         if len(medical_datas) > 1:
@@ -231,7 +271,7 @@ def patient_history(patients):
 
             # Multiple Options to View Each History by Day, Week, Month or Selected Duration
 
-            tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(
+            tab1, tab2, tab3, tab4, tab5, tab6 = expander.tabs(
                 [
                     "📈 Weight",
                     "📈 Height",
