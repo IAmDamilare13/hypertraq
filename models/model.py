@@ -58,7 +58,7 @@ class Models:
     model_class = Model
     MONGO: MongoClient = None
     DATABASE: Database = None
- 
+
     def __init__(self):
         if not Models.MONGO:
             LOGGER.info(f"Connecting to MongoDB on {MONGODB}.")
@@ -69,10 +69,10 @@ class Models:
             LOGGER.info(
                 "Pinged your deployment. You successfully connected to MongoDB!"
             )
-        else:
-            collections = Models.DATABASE.list_collection_names()
-            if self.name not in collections:
-                Models.DATABASE.create_collection(self.name)
+        # else:
+            # collections = Models.DATABASE.list_collection_names()
+            # if self.name not in collections:
+            #     Models.DATABASE.create_collection(self.name)
 
         # self.collection.create_index("id", unique=True)
 
