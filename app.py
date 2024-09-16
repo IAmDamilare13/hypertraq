@@ -27,12 +27,9 @@ def main():
         login_page()
 
 
-# st.set_page_config(
-#     page_title="HyperTraQ",
-#     page_icon="👨‍⚕️",
-#     layout="centered",
-#     menu_items=None,
-# )
+st.set_page_config(
+    page_title="HyperTraQ", page_icon="👨‍⚕️", layout="centered", menu_items=None
+)
 
 # STYLING
 st.markdown(
