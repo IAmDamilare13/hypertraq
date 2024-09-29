@@ -29,6 +29,7 @@ st-theme==1.2.3
 streamlit==1.37.1
 streamlit-authenticator==0.3.3
 streamlit-card==1.0.2
+streamlit-cookies==0.0.1
 streamlit-embedcode==0.1.2
 streamlit-extras==0.4.7
 streamlit-option-menu==0.3.13
