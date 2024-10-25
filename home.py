@@ -126,7 +126,7 @@ def home_page():
 
     st.divider()
 
-    st.subheader("Contact Us")
+    st.subheader("Feedback 🙏")
     st.write(
         "[Kindly click here to provide your feedback (https://forms.gle/ymNXSg8s48az6uFM7)."
     )
