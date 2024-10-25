@@ -128,5 +128,5 @@ def home_page():
 
     st.subheader("Feedback 🙏")
     st.write(
-        "Kindly [click here to provide your feedback(https://forms.gle/ymNXSg8s48az6uFM7)]."
+        "Kindly [click here to give your feedback](https://bit.ly/hypertraqfeedback)."
     )
