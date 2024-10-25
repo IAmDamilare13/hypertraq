@@ -7,7 +7,8 @@ from PIL import Image
 def home_page():
     # st.title("Welcome to HyperTraQ")
     st.write(
-        "This platform helps patients and healthcare professionals to manage and monitor hypertension risk."
+        "This platform is an undergraduate project, developed to demonstrate the feasibility of a hypertension risk prediction and management system.
+        With the aid of a preditive model, patients and healthcare professionals can manage and monitor hypertension risk."
     )
 
     image = Image.open("images/chart.png")
@@ -129,5 +130,5 @@ def home_page():
 
     st.subheader("Contact Us")
     st.write(
-        "Have any feedback? [click here](mailto:daramolacpe186651@futa.edu.ng) to reach out to us."
+        "[Kindly click here to provide your feedback (https://forms.gle/ymNXSg8s48az6uFM7)."
     )
