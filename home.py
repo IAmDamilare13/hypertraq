@@ -6,7 +6,7 @@ from PIL import Image
 
 def home_page():
     # st.title("Welcome to HyperTraQ")
-    st.write("This platform is an undergraduate project, developed to demonstrate the feasibility of a hypertension risk prediction and management system. "
+    st.write("This platform is part of an undergraduate project, developed to demonstrate the feasibility of a hypertension risk prediction and management system. "
        "With the aid of a preditive model, patients and healthcare professionals can manage and monitor hypertension risk.")
 
     image = Image.open("images/chart.png")
